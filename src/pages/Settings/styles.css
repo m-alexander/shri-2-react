@@ -1,0 +1,19 @@
+.settings-page {
+}
+
+.settings-page--header {
+	font-weight: bold;
+	font-size: 15px;
+	line-height: 20px;
+	color: var(--color-text);
+	margin-top: 8px;
+}
+
+.settings-page--description {
+	font-size: 13px;
+	line-height: 18px;
+	letter-spacing: 0.06px;
+	color: var(--blue-grey-500);
+	margin-top: 8px;
+	margin-bottom: 5px;
+}

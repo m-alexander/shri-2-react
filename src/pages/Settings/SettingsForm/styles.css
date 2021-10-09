@@ -1,0 +1,42 @@
+.settings-form {
+	display: flex;
+	flex-direction: column;
+}
+
+.settings-form--field {
+	margin: 9px 0;
+}
+
+.settings-form--sync {
+	margin: 7px 0;
+	font-size: 13px;
+	line-height: 18px;
+	letter-spacing: 0.06px;
+	color: var(--color-text);
+}
+
+.settings-form--sync-minutes {
+	width: 52px;
+	display: inline-block;
+	margin: 0 8px;
+}
+
+.settings-form--sync-control {
+	text-align: right;
+}
+
+.settings-form--buttons {
+	display: grid;
+	grid-gap: 12px;
+	margin: 13px 0;
+}
+
+@media (min-width: 824px) {
+	.settings-form--field {
+		width: 474px;
+	}
+
+	.settings-form--buttons {
+		grid-template-columns: min-content min-content;
+	}
+}

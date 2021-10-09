@@ -1,0 +1,21 @@
+.build-history--title {
+	letter-spacing: 0.25px;
+	color: var(--black-500);
+}
+
+.build-history--show-more-btn {
+	width: 100%;
+	min-height: 36px;
+	margin-bottom: 14px;
+}
+
+@media (min-width: 824px) {
+	.build-history--show-more-btn {
+		width: auto;
+		min-height: auto;
+	}
+
+	.build-history--items {
+		margin: 9px 0;
+	}
+}

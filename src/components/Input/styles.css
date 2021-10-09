@@ -1,0 +1,30 @@
+.input {
+	display: flex;
+	align-items: center;
+
+	background: var(--color-bg-base);
+	border: 2px solid var(--color-bg-heavy);
+	border-radius: 4px;
+}
+
+.input--control {
+	flex: 1;
+	max-width: 100%;
+	margin: 0;
+	padding: 9px 11px 8px;
+	outline: none;
+	border-radius: 4px;
+	border: none;
+	font-size: 13px;
+	line-height: 15px;
+	color: var(--color-text);
+	size: 0;
+}
+
+.input--control::placeholder {
+	opacity: 0.2;
+}
+
+.input:focus-within {
+	border-color: var(--color-border-focused);
+}

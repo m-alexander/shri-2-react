@@ -1,0 +1,31 @@
+.new-build-modal {
+	background: #ffffff;
+	box-shadow: 0 0 1px rgba(67, 68, 69, 0.3), 0 6px 16px rgba(67, 68, 69, 0.3);
+	border-radius: 4px;
+	padding: 20px;
+
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+
+	width: 485px;
+}
+
+.new-build-modal--title {
+	font-weight: 500;
+	font-size: 18px;
+	line-height: 22px;
+	color: #000000;
+}
+
+.new-build--description {
+	font-size: 13px;
+	line-height: 18px;
+	letter-spacing: 0.06px;
+	color: #000000;
+}
+
+.new-build-modal--buttons {
+	display: flex;
+	gap: 10px;
+}

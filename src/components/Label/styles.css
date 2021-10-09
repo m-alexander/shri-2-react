@@ -1,0 +1,19 @@
+.label {
+	display: block;
+}
+
+.label--title {
+	font-size: 13px;
+	line-height: 18px;
+	letter-spacing: 0.06px;
+	color: var(--color-text);
+	margin-bottom: 6px;
+}
+
+.label__required .label--title:after {
+	content: " *";
+	font-size: 13px;
+	line-height: 18px;
+	letter-spacing: 0.06px;
+	color: var(--red-500);
+}

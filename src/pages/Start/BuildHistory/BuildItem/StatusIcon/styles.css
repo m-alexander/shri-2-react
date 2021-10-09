@@ -1,0 +1,11 @@
+.status-icon {
+	width: 16px;
+	height: 16px;
+}
+
+@media (min-width: 824px) {
+	.status-icon {
+		width: 24px;
+		height: 24px;
+	}
+}

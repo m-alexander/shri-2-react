@@ -1,0 +1,26 @@
+.header-button {
+	padding: 0;
+}
+
+.header-button--icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	padding: 8px;
+	width: 28px;
+	height: 28px;
+}
+
+.header-button--label {
+	display: none;
+}
+
+@media (min-width: 824px) {
+	.header-button--label {
+		display: block;
+		margin-left: -4px;
+		padding-right: 13px;
+		white-space: nowrap;
+	}
+}

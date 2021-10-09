@@ -1,0 +1,24 @@
+.no-config {
+	display: grid;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+}
+
+.no-config--content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	max-width: 380px;
+}
+
+.no-config--description {
+	width: 264px;
+	text-align: center;
+
+	font-size: 13px;
+	line-height: 125%;
+	color: var(--color-text);
+
+	margin: 32px 0 24px 0;
+}
