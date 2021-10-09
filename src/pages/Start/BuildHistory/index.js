@@ -1,15 +1,19 @@
+import { useState } from "react";
+import { useSelector } from "react-redux";
 import HeaderButton from "components/HeaderButton";
 import Layout from "components/Layout";
 import { SettingsIcon, PlayIcon } from "components/Icons";
 import Button from "components/Button";
 import BuildItem from "./BuildItem";
 import NewBuildModal from "./NewBuildModal";
-import { getBuildItems, getSettings } from "api";
+import { getBuildItems } from "api";
 import "./styles.css";
-import { useState } from "react";
 
 const BuildHistory = () => {
-	const settings = getSettings();
+	const repository = useSelector((store) => {
+		return store?.settings?.repository ?? "";
+	});
+
 	const items = getBuildItems();
 
 	const [isNewBuildModalOpened, setNewBuildModalOpened] = useState(false);
@@ -27,9 +31,7 @@ const BuildHistory = () => {
 						<HeaderButton icon={SettingsIcon} href="/settings" />
 					</>
 				}
-				title={
-					<div className="build-history--title">{settings.repository}</div>
-				}
+				title={<div className="build-history--title">{repository}</div>}
 			>
 				<div className="build-history--items">
 					{items.map((item) => (

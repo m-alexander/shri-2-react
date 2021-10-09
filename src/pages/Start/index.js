@@ -1,9 +1,12 @@
+import { useSelector } from "react-redux";
 import NotConfigured from "./NotConfigured";
 import BuildHistory from "./BuildHistory";
-import { getSettings } from "api";
 
 const StartPage = () => {
-	const settings = getSettings();
+	const settings = useSelector((store) => {
+		return store?.settings;
+	});
+
 	const isConfigured = settings?.repository && settings?.buildCommand;
 
 	return isConfigured ? <BuildHistory /> : <NotConfigured />;
