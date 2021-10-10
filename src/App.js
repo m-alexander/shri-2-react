@@ -1,7 +1,8 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import StartPage from "./pages/Start";
-import SettingsPage from "./pages/Settings";
+import StartPage from "pages/Start";
+import SettingsPage from "pages/Settings";
+import NotFoundPage from "pages/NotFound";
 
 function App() {
 	return (
@@ -9,7 +10,7 @@ function App() {
 			<Switch>
 				<Route path="/" exact component={StartPage} />
 				<Route path="/settings" exact component={SettingsPage} />
-				<Route path="/build-history" exact component={SettingsPage} />
+				<Route path="*" exact component={NotFoundPage} />
 			</Switch>
 		</BrowserRouter>
 	);

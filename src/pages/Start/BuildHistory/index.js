@@ -1,17 +1,17 @@
+import { useState } from "react";
 import HeaderButton from "components/HeaderButton";
 import Layout from "components/Layout";
 import { SettingsIcon, PlayIcon } from "components/Icons";
 import Button from "components/Button";
 import BuildItem from "./BuildItem";
 import NewBuildModal from "./NewBuildModal";
-import { getBuildItems, getSettings } from "api";
+import { getSettings } from "api";
+import { useBuildItems } from "./_hooks";
 import "./styles.css";
-import { useState } from "react";
 
 const BuildHistory = () => {
 	const settings = getSettings();
-	const items = getBuildItems();
-
+	const { fetching, hasMore, fetchMore, items } = useBuildItems();
 	const [isNewBuildModalOpened, setNewBuildModalOpened] = useState(false);
 
 	return (
@@ -28,7 +28,7 @@ const BuildHistory = () => {
 					</>
 				}
 				title={
-					<div className="build-history--title">{settings.repository}</div>
+					<div className="build-history--title">{settings?.repository}</div>
 				}
 			>
 				<div className="build-history--items">
@@ -37,9 +37,16 @@ const BuildHistory = () => {
 					))}
 				</div>
 
-				<Button className="build-history--show-more-btn" size="small">
-					Show more
-				</Button>
+				{hasMore && (
+					<Button
+						className="build-history--show-more-btn"
+						size="small"
+						disabled={fetching}
+						onClick={fetchMore}
+					>
+						Show more
+					</Button>
+				)}
 			</Layout>
 
 			{isNewBuildModalOpened && (

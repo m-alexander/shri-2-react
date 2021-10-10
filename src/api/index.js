@@ -1,9 +1,3 @@
-import { builds } from "./mocks";
-
-export const getBuildItems = () => {
-	return builds;
-};
-
 let settings;
 export const getSettings = () => {
 	return settings;

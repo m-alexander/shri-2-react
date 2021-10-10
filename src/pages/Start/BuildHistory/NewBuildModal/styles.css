@@ -8,7 +8,7 @@
 	flex-direction: column;
 	gap: 12px;
 
-	width: 485px;
+	width: 100%;
 }
 
 .new-build-modal--title {
@@ -28,4 +28,10 @@
 .new-build-modal--buttons {
 	display: flex;
 	gap: 10px;
+}
+
+@media (min-width: 824px) {
+	.new-build-modal {
+		width: 485px;
+	}
 }
