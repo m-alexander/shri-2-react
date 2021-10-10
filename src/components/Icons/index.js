@@ -1,0 +1,9 @@
+export { ReactComponent as SettingsIcon } from "./settings.svg";
+export { ReactComponent as PlayIcon } from "./play.svg";
+export { ReactComponent as CodeCommitIcon } from "./code-commit.svg";
+export { ReactComponent as SuccessIcon } from "./success.svg";
+export { ReactComponent as FailedIcon } from "./failed.svg";
+export { ReactComponent as PendingIcon } from "./pending.svg";
+export { ReactComponent as UserIcon } from "./user.svg";
+export { ReactComponent as CalendarIcon } from "./calendar.svg";
+export { ReactComponent as StopWatchIcon } from "./stop-watch.svg";

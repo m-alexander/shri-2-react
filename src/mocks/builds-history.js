@@ -1,4 +1,4 @@
-export const builds = [
+export const buildsHistory = [
 	{
 		status: "success",
 		id: 1368,

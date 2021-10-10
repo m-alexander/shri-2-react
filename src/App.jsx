@@ -13,7 +13,6 @@ function App() {
 			<Switch>
 				<Route path="/" exact component={StartPage} />
 				<Route path="/settings" exact component={SettingsPage} />
-				<Route path="/build-history" exact component={SettingsPage} />
 				<Route path="*" component={NotFound} />
 			</Switch>
 		</Provider>

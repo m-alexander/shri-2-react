@@ -6,15 +6,15 @@ import { SettingsIcon, PlayIcon } from "components/Icons";
 import Button from "components/Button";
 import BuildItem from "./BuildItem";
 import NewBuildModal from "./NewBuildModal";
-import { getBuildItems } from "api";
+import { useBuildItems } from "./_hooks";
 import "./styles.css";
 
 const BuildHistory = () => {
-	const repository = useSelector((store) => {
-		return store?.settings?.repository ?? "";
+	const repository = useSelector((state) => {
+		return state?.settings?.repository ?? "";
 	});
 
-	const items = getBuildItems();
+	const { fetching, hasMore, fetchMore, items } = useBuildItems();
 
 	const [isNewBuildModalOpened, setNewBuildModalOpened] = useState(false);
 
@@ -39,9 +39,16 @@ const BuildHistory = () => {
 					))}
 				</div>
 
-				<Button className="build-history--show-more-btn" size="small">
-					Show more
-				</Button>
+				{hasMore && (
+					<Button
+						className="build-history--show-more-btn"
+						size="small"
+						disabled={fetching}
+						onClick={fetchMore}
+					>
+						Show more
+					</Button>
+				)}
 			</Layout>
 
 			{isNewBuildModalOpened && (

@@ -47,7 +47,7 @@ module.exports = {
 				],
 			},
 			{
-				test: /\.(otf|eot|svg|ttf|woff|woff2).*$/,
+				test: /\.(otf|eot|ttf|woff|woff2).*$/,
 				use: [
 					{
 						loader: "url-loader",
@@ -61,6 +61,10 @@ module.exports = {
 			{
 				test: /\.css$/i,
 				use: ["css-loader"],
+			},
+			{
+				test: /\.svg$/,
+				use: ["@svgr/webpack", "url-loader"],
 			},
 		],
 	},

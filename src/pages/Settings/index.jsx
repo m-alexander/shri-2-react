@@ -5,8 +5,8 @@ import { saveSettings } from "store/actions";
 import "./styles.css";
 
 const SettingsPage = () => {
-	const settings = useSelector((store) => {
-		return store?.settings;
+	const settings = useSelector((state) => {
+		return state?.settings;
 	});
 
 	const dispatch = useDispatch();
@@ -24,7 +24,7 @@ const SettingsPage = () => {
 
 				<SettingsForm
 					defaultValues={settings}
-					saveSettings={handleSaveSettings}
+					onSaveSettings={handleSaveSettings}
 				/>
 			</div>
 		</Layout>

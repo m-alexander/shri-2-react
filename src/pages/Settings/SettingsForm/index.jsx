@@ -6,7 +6,7 @@ import Label from "components/Label";
 import ClearButton from "components/ClearButton";
 import "./styles.css";
 
-const SettingsForm = ({ defaultValues, saveSettings }) => {
+const SettingsForm = ({ defaultValues, onSaveSettings }) => {
 	const [values, setValues] = useState(() => ({
 		repository: defaultValues?.repository ?? "",
 		buildCommand: defaultValues?.buildCommand ?? "",
@@ -42,7 +42,7 @@ const SettingsForm = ({ defaultValues, saveSettings }) => {
 
 		setSubmitting(true);
 		setTimeout(() => {
-			saveSettings(values);
+			onSaveSettings(values);
 			setSubmitting(false);
 			history.push("/");
 		}, 1000);

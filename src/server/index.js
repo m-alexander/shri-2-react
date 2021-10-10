@@ -8,11 +8,10 @@ import App from "../App";
 const PORT = process.env.PORT || 3000;
 const server = express();
 
-server.use(express.static("build"));
+server.use(express.static("build", { index: false }));
 
 server.use("/", (req, res) => {
 	const context = {};
-	console.log(req.url);
 	const html = renderToString(
 		<StaticRouter location={req.url} context={context}>
 			<App />
