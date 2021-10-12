@@ -1,8 +1,19 @@
+import { useDispatch, useSelector } from "react-redux";
 import Layout from "components/Layout";
 import SettingsForm from "./SettingsForm";
+import { saveSettings } from "store/actions";
 import "./styles.css";
 
 const SettingsPage = () => {
+	const settings = useSelector((state) => {
+		return state?.settings;
+	});
+
+	const dispatch = useDispatch();
+	const handleSaveSettings = (values) => {
+		dispatch(saveSettings(values));
+	};
+
 	return (
 		<Layout>
 			<div className="settings-page">
@@ -11,7 +22,10 @@ const SettingsPage = () => {
 					Configure repository connection and&nbsp;synchronization settings.
 				</div>
 
-				<SettingsForm />
+				<SettingsForm
+					defaultValues={settings}
+					onSaveSettings={handleSaveSettings}
+				/>
 			</div>
 		</Layout>
 	);

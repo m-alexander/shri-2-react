@@ -1,45 +1,30 @@
-import { useEffect, useState } from "react";
-import { builds } from "./mocks";
-
-const ITEMS_PER_PAGE = 5;
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { loadBuildHistory, loadMoreBuildHistory } from "store/actions";
 
 export const useBuildItems = () => {
-	const [page, setPage] = useState(1);
-	const [items, setItems] = useState([]);
-	const [fetching, setFetching] = useState(true);
+	const {
+		loading: fetching,
+		hasMore,
+		items,
+	} = useSelector((state) => {
+		return state?.buildsHistory;
+	});
 
-	useEffect(() => {
-		fetchPage(1).then((items) => setItems(items));
-	}, []);
-
-	const fetchPage = (page) => {
-		return new Promise((resolve) => {
-			setFetching(true);
-			setTimeout(() => {
-				setFetching(false);
-				const items = builds.slice(
-					(page - 1) * ITEMS_PER_PAGE,
-					page * ITEMS_PER_PAGE
-				);
-				resolve(items);
-			}, Math.random() * 100 + 300);
-		});
-	};
+	const dispatch = useDispatch();
 
 	const fetchMore = () => {
-		if (fetching) return;
-
-		const nextPage = page + 1;
-		setPage(nextPage);
-		fetchPage(nextPage).then((items) => {
-			setItems((prev) => [...prev, ...items]);
-		});
+		dispatch(loadMoreBuildHistory());
 	};
+
+	useEffect(() => {
+		dispatch(loadBuildHistory());
+	}, []);
 
 	return {
 		fetching,
-		hasMore: items.length < builds.length,
-		fetchMore,
+		hasMore,
 		items,
+		fetchMore,
 	};
 };

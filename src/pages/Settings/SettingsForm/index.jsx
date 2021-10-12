@@ -4,17 +4,14 @@ import Button from "components/Button";
 import Input from "components/Input";
 import Label from "components/Label";
 import ClearButton from "components/ClearButton";
-import { getSettings, saveSettings } from "api";
 import "./styles.css";
 
-const SettingsForm = () => {
-	const settings = getSettings();
-
+const SettingsForm = ({ defaultValues, onSaveSettings }) => {
 	const [values, setValues] = useState(() => ({
-		repository: settings?.repository ?? "",
-		buildCommand: settings?.buildCommand ?? "npm ci && npm run build",
-		mainBranch: settings?.mainBranch ?? "master",
-		syncTime: settings?.syncTime ?? "10",
+		repository: defaultValues?.repository ?? "",
+		buildCommand: defaultValues?.buildCommand ?? "",
+		mainBranch: defaultValues?.mainBranch ?? "",
+		syncTime: defaultValues?.syncTime ?? "",
 	}));
 
 	const handleChange = (e) => {
@@ -45,7 +42,7 @@ const SettingsForm = () => {
 
 		setSubmitting(true);
 		setTimeout(() => {
-			saveSettings(values);
+			onSaveSettings(values);
 			setSubmitting(false);
 			history.push("/");
 		}, 1000);
